@@ -1,13 +1,13 @@
 from django.shortcuts import render
 
 from .models import Tarefa
-from datetime import date
+from django.utils import timezone
 
 def lista_tarefas(request):
     tarefas = Tarefa.objects.all()
-    hoje = date.today()
+    hoje = timezone.now()
     context = {
         'tarefas': tarefas,
-        'hoje': date.today(),
+        'hoje': timezone.now(),
     }
     return render(request, 'app/lista.html', context)

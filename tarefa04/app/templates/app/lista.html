@@ -18,7 +18,7 @@
                     <li class="tarefa {% if tarefa.atrasada %}atrasada{% endif %}">
                         <span class="nome">{{ tarefa.nome }}</span>
                         <span class="status">{{ tarefa.status }}</span>
-                        <span class="prazo">{{ tarefa.prazo|date:"d/m/Y" }}</span>
+                        <span class="prazo">{{ tarefa.prazo|date:"d/m/Y H:i" }}</span>
                     </li>
                 {% endfor %}
             </ul>
