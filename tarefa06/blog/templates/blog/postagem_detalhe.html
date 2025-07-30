@@ -1,0 +1,32 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block title %}{{ postagem.titulo }}{% endblock %}
+
+{% block header_image %}
+  {% if postagem.imagem %}
+    {{ postagem.imagem.url }}
+  {% else %}
+    {% static 'website/img/sem-imagem.jpg' %}
+  {% endif %}
+{% endblock %}
+
+{% block titulo %}{{ postagem.titulo }}{% endblock %}
+{% block subtitulo %}Detalhes da postagem{% endblock %}
+
+{% block content %}
+<main class="container mt-5">
+  <article>
+    {% if postagem.imagem %}
+    <div style="max-height: 400px; overflow: hidden; margin-bottom: 20px;">
+      <img src="{{ postagem.imagem.url }}" alt="{{ postagem.titulo }}" style="width: 100%; object-fit: cover;">
+    </div>
+    {% endif %}
+    <h2>{{ postagem.titulo }}</h2>
+    <p class="text-muted">Publicado em {{ postagem.data_publicacao|date:"d M Y" }}</p>
+    <div>
+      {{ postagem.texto|linebreaks }}
+    </div>
+  </article>
+</main>
+{% endblock %}

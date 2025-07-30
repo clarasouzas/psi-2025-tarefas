@@ -1,0 +1,33 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block title %}Início{% endblock title %}
+{% block titulo %}Meu Blog{% endblock titulo %}
+{% block subtitulo %}Postagens Recentes{% endblock subtitulo %}
+{% block header_image %}{% static 'website/img/indeximg.jpg' %}{% endblock header_image %}
+
+{% block content %}
+<div class="container-centered">
+  <div class="posts-grid">
+    {% for postagem in postagens %}
+    <div class="post-card">
+      <div>
+        {% if postagem.imagem %}
+          <img src="{{ postagem.imagem.url }}" alt="{{ postagem.titulo }}">
+        {% else %}
+          <img src="{% static 'website/img/sem-imagem.jpg' %}" alt="Sem imagem">
+        {% endif %}
+      </div>
+      <div class="post-card-body">
+        <h5 class="post-card-title">{{ postagem.titulo }}</h5>
+        <p class="post-card-text">{{ postagem.texto|truncatewords:20 }}</p>
+        <p class="post-card-date">{{ postagem.data_publicacao|date:"d M Y" }}</p>
+        <a href="{% url 'postagem_detalhe' postagem.pk %}" class="post-card-link">Leia mais</a>
+      </div>
+    </div>
+    {% empty %}
+      <p class="text-center">Nenhuma postagem disponível.</p>
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}

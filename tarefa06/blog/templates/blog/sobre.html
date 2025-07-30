@@ -1,0 +1,15 @@
+{% extends "blog/base.html" %}
+{% load static %}
+
+{% block title %}Sobre{% endblock title %}
+{% block titulo %}Sobre o Blog{% endblock titulo %}
+{% block subtitulo %}Informações e contexto do nosso blog{% endblock subtitulo %}
+{% block header_image %}{% static 'blog/img/sobreimg.jpg' %}{% endblock header_image %}
+
+{% block content %}
+<main class="mb-4 container-centered">
+  <div>
+    <p>{{ conteudo_sobre | safe }}</p>
+  </div>
+</main>
+{% endblock content %}
