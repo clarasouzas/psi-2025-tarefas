@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <title>Minhas Tarefas</title>
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}" />
+</head>
+<body>
+    <header>
+        <h1>Lista de Tarefas</h1>
+    </header>
+
+    <main>
+        {% if tarefas %}
+            <ul class="lista-tarefas">
+                {% for tarefa in tarefas %}
+                    <li class="tarefa {% if tarefa.atrasada %}atrasada{% endif %}">
+                        <span class="nome">{{ tarefa.nome }}</span>
+                        <span class="status">{{ tarefa.status }}</span>
+                        <span class="prazo">{{ tarefa.prazo|date:"d/m/Y" }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="vazio">Nenhuma tarefa cadastrada.</p>
+        {% endif %}
+    </main>
+</body>
+</html>
+
