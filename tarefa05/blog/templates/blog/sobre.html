@@ -2,14 +2,39 @@
 {% load static %}
 
 {% block title %}Sobre{% endblock title %}
-{% block titulo %}Sobre o Blog{% endblock titulo %}
-{% block subtitulo %}Informações e contexto do nosso blog{% endblock subtitulo %}
-{% block header_image %}{% static 'blog/img/sobreimg.jpg' %}{% endblock header_image %}
+
+{% block titulo %}
+  {% if conteudo and conteudo.titulo %}
+    {{ conteudo.titulo }}
+  {% else %}
+    Sobre o Blog
+  {% endif %}
+{% endblock titulo %}
+
+{% block subtitulo %}
+  {% if conteudo and conteudo.subtitulo %}
+    {{ conteudo.subtitulo }}
+  {% else %}
+    Informações e contexto do nosso blog
+  {% endif %}
+{% endblock subtitulo %}
+
+{% block header_image %}
+  {% if conteudo and conteudo.imagem_header %}
+    {{ conteudo.imagem_header.url }}
+  {% else %}
+    {% static 'blog/img/sobreimg.jpg' %}
+  {% endif %}
+{% endblock header_image %}
 
 {% block content %}
 <main class="mb-4 container-centered">
   <div>
-    <p>{{ conteudo_sobre | safe }}</p>
+    {% if conteudo and conteudo.texto %}
+      <p>{{ conteudo.texto|linebreaks }}</p>
+    {% else %}
+      <p>Informações sobre o blog ainda não cadastradas.</p>
+    {% endif %}
   </div>
 </main>
 {% endblock content %}

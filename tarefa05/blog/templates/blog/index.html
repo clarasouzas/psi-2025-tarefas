@@ -2,9 +2,30 @@
 {% load static %}
 
 {% block title %}Início{% endblock title %}
-{% block titulo %}Meu Blog{% endblock titulo %}
-{% block subtitulo %}Postagens Recentes{% endblock subtitulo %}
-{% block header_image %}{% static 'website/img/indeximg.jpg' %}{% endblock header_image %}
+
+{% block titulo %}
+  {% if conteudo and conteudo.titulo %}
+    {{ conteudo.titulo }}
+  {% else %}
+    Meu Blog
+  {% endif %}
+{% endblock titulo %}
+
+{% block subtitulo %}
+  {% if conteudo and conteudo.subtitulo %}
+    {{ conteudo.subtitulo }}
+  {% else %}
+    Postagens Recentes
+  {% endif %}
+{% endblock subtitulo %}
+
+{% block header_image %}
+  {% if conteudo and conteudo.imagem_header %}
+    {{ conteudo.imagem_header.url }}
+  {% else %}
+    {% static 'website/img/indeximg.jpg' %}
+  {% endif %}
+{% endblock header_image %}
 
 {% block content %}
 <div class="container-centered">

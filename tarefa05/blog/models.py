@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 
 class Postagem(models.Model):
     titulo = models.CharField(max_length=200)
@@ -13,7 +14,6 @@ class ConteudoSite(models.Model):
     PAGINAS = [
         ('sobre', 'Sobre'),
         ('header', 'Header'),
-        ('footer', 'Footer'),
         ('inicio', 'Início'),
     ]
 

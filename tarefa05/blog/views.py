@@ -1,13 +1,17 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Postagem
+from .models import Postagem, ConteudoSite
 
 def index(request):
     postagens = Postagem.objects.order_by('-data_publicacao')
-    return render(request, 'blog/index.html', {'postagens': postagens})
+    conteudo = ConteudoSite.objects.filter(pagina='inicio').first()
+    return render(request, 'blog/index.html', {
+        'postagens': postagens,
+        'conteudo': conteudo,
+    })
 
 def sobre(request):
-    # Caso tenha conteúdo dinâmico, passe contexto aqui
-    return render(request, 'blog/sobre.html')
+    conteudo = ConteudoSite.objects.filter(pagina='sobre').first()
+    return render(request, 'blog/sobre.html', {'conteudo': conteudo})
 
 def lista_postagens(request):
     postagens = Postagem.objects.order_by('-data_publicacao')
@@ -16,3 +20,5 @@ def lista_postagens(request):
 def postagem_detalhe(request, pk):
     postagem = get_object_or_404(Postagem, pk=pk)
     return render(request, 'blog/postagem_detalhe.html', {'postagem': postagem})
+
+
