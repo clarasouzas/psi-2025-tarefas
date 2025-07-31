@@ -1,5 +1,5 @@
 from django.db import models
-from django.utils import timezone
+from datetime import date
 
 class Tarefa(models.Model):
     PENDENTE = 'Pendente'
@@ -14,7 +14,7 @@ class Tarefa(models.Model):
 
     nome = models.CharField('Título', max_length=100)
     status = models.CharField('Status', max_length=20, choices=STATUS, default=PENDENTE)
-    prazo = models.DateTimeField('Prazo')
+    prazo = models.DateField('Prazo',null=False, blank=False)
 
     class Meta:
         ordering = ['-prazo']
@@ -25,5 +25,6 @@ class Tarefa(models.Model):
 
     @property
     def atrasada(self):
-        hoje = timezone.now().replace(hour=0, minute=0, second=0, microsecond=0)
-        return self.prazo < hoje and self.status != self.CONCLUIDA
+        if self.prazo is None:
+            return False
+        return self.prazo < date.today() and self.status != self.CONCLUIDA
