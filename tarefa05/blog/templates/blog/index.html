@@ -1,31 +1,15 @@
 {% extends "blog/base.html" %}
 {% load static %}
 
-{% block title %}Início{% endblock title %}
+{% block title %}Início - {{ blog.titulo }}{% endblock title %}
 
 {% block titulo %}
-  {% if conteudo and conteudo.titulo %}
-    {{ conteudo.titulo }}
-  {% else %}
-    Meu Blog
-  {% endif %}
+  {{ conteudo.titulo|default:"Bem-vindo ao Blog" }}
 {% endblock titulo %}
 
 {% block subtitulo %}
-  {% if conteudo and conteudo.subtitulo %}
-    {{ conteudo.subtitulo }}
-  {% else %}
-    Postagens Recentes
-  {% endif %}
+  {{ conteudo.subtitulo|default:"Confira as últimas postagens" }}
 {% endblock subtitulo %}
-
-{% block header_image %}
-  {% if conteudo and conteudo.imagem_header %}
-    {{ conteudo.imagem_header.url }}
-  {% else %}
-    {% static 'website/img/indeximg.jpg' %}
-  {% endif %}
-{% endblock header_image %}
 
 {% block content %}
 <div class="container-centered">

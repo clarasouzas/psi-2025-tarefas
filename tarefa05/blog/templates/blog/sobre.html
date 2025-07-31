@@ -1,36 +1,20 @@
 {% extends "blog/base.html" %}
 {% load static %}
 
-{% block title %}Sobre{% endblock title %}
+{% block title %}Sobre - {{ blog.titulo }}{% endblock title %}
 
 {% block titulo %}
-  {% if conteudo and conteudo.titulo %}
-    {{ conteudo.titulo }}
-  {% else %}
-    Sobre o Blog
-  {% endif %}
+  {{ conteudo.titulo|default:"Sobre o Blog" }}
 {% endblock titulo %}
 
 {% block subtitulo %}
-  {% if conteudo and conteudo.subtitulo %}
-    {{ conteudo.subtitulo }}
-  {% else %}
-    Informações e contexto do nosso blog
-  {% endif %}
+  {{ conteudo.subtitulo|default:"Informações e contexto do nosso blog" }}
 {% endblock subtitulo %}
-
-{% block header_image %}
-  {% if conteudo and conteudo.imagem_header %}
-    {{ conteudo.imagem_header.url }}
-  {% else %}
-    {% static 'blog/img/sobreimg.jpg' %}
-  {% endif %}
-{% endblock header_image %}
 
 {% block content %}
 <main class="mb-4 container-centered">
   <div>
-    {% if conteudo and conteudo.texto %}
+    {% if conteudo.texto %}
       <p>{{ conteudo.texto|linebreaks }}</p>
     {% else %}
       <p>Informações sobre o blog ainda não cadastradas.</p>

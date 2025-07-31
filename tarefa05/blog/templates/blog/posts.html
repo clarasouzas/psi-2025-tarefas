@@ -1,9 +1,10 @@
 {% extends "blog/base.html" %}
 {% load static %}
 
-{% block title %}Postagens - Meu Blog{% endblock %}
-{% block header_image %}{% static 'website/img/postagensimg.jpg' %}{% endblock %}
-{% block titulo %}Postagens{% endblock %}
+{% block title %}Postagens - {{ blog.titulo }}{% endblock title %}
+
+{% block titulo %}Postagens{% endblock titulo %}
+{% block subtitulo %}Confira todas as postagens do blog{% endblock subtitulo %}
 
 {% block content %}
 <div class="container mt-5">

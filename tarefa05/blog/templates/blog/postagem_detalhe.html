@@ -1,24 +1,24 @@
 {% extends "blog/base.html" %}
 {% load static %}
 
-{% block title %}{{ postagem.titulo }}{% endblock %}
+{% block title %}{{ postagem.titulo }} - {{ blog.titulo }}{% endblock title %}
 
-{% block header_image %}
+{% block titulo %}{{ postagem.titulo }}{% endblock titulo %}
+{% block subtitulo %}Detalhes da postagem{% endblock subtitulo %}
+
+{% block header_image  %}
   {% if postagem.imagem %}
     {{ postagem.imagem.url }}
   {% else %}
     {% static 'website/img/sem-imagem.jpg' %}
   {% endif %}
-{% endblock %}
-
-{% block titulo %}{{ postagem.titulo }}{% endblock %}
-{% block subtitulo %}Detalhes da postagem{% endblock %}
+{% endblock header_image %}
 
 {% block content %}
 <main class="container mt-5">
   <article>
     {% if postagem.imagem %}
-    <div style="max-height: 400px; overflow: hidden; margin-bottom: 20px;">
+    <div style="max-height: 700px; overflow: hidden; margin-bottom: 20px;">
       <img src="{{ postagem.imagem.url }}" alt="{{ postagem.titulo }}" style="width: 100%; object-fit: cover;">
     </div>
     {% endif %}
@@ -29,4 +29,4 @@
     </div>
   </article>
 </main>
-{% endblock %}
+{% endblock content %}

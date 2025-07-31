@@ -1,24 +1,32 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Postagem, ConteudoSite
+from .models import Postagem, Blog, ConteudoPagina
 
 def index(request):
-    postagens = Postagem.objects.order_by('-data_publicacao')
-    conteudo = ConteudoSite.objects.filter(pagina='inicio').first()
-    return render(request, 'blog/index.html', {
-        'postagens': postagens,
-        'conteudo': conteudo,
-    })
+    context = {
+        "postagens": Postagem.objects.order_by('-data_publicacao'),
+        "blog": Blog.objects.first(),
+        "conteudo": ConteudoPagina.objects.filter(pagina='inicio').first(),
+    }
+    return render(request, "blog/index.html", context)
 
 def sobre(request):
-    conteudo = ConteudoSite.objects.filter(pagina='sobre').first()
-    return render(request, 'blog/sobre.html', {'conteudo': conteudo})
+    context = {
+        "blog": Blog.objects.first(),
+        "conteudo": ConteudoPagina.objects.filter(pagina='sobre').first(),
+    }
+    return render(request, "blog/sobre.html", context)
 
 def lista_postagens(request):
-    postagens = Postagem.objects.order_by('-data_publicacao')
-    return render(request, 'blog/posts.html', {'postagens': postagens})
+    context = {
+        "postagens": Postagem.objects.order_by('-data_publicacao'),
+        "blog": Blog.objects.first(),
+    }
+    return render(request, "blog/posts.html", context)
 
 def postagem_detalhe(request, pk):
     postagem = get_object_or_404(Postagem, pk=pk)
-    return render(request, 'blog/postagem_detalhe.html', {'postagem': postagem})
-
-
+    context = {
+        "postagem": postagem,
+        "blog": Blog.objects.first(),
+    }
+    return render(request, "blog/postagem_detalhe.html", context)
