@@ -143,9 +143,6 @@ main.mb-4 {
   margin-bottom: 0.5rem;
   color: #fff;
 }
-.text-muted{
-  color: #fff !important;
-}
 
 .post-card-text {
   flex-grow: 1;
