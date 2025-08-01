@@ -20,12 +20,12 @@
         {% if postagem.imagem %}
           <img src="{{ postagem.imagem.url }}" alt="{{ postagem.titulo }}">
         {% else %}
-          <img src="{% static 'website/img/sem-imagem.jpg' %}" alt="Sem imagem">
+          <img src="{% static 'blog/img/sem-imagem.jpg' %}" alt="Sem imagem">
         {% endif %}
       </div>
       <div class="post-card-body">
         <h5 class="post-card-title">{{ postagem.titulo }}</h5>
-        <p class="post-card-text">{{ postagem.texto|truncatewords:20 }}</p>
+        <p class="post-card-text">{{ postagem.texto|truncatewords:10 }}</p>
         <p class="post-card-date">{{ postagem.data_publicacao|date:"d M Y" }}</p>
         <a href="{% url 'postagem_detalhe' postagem.pk %}" class="post-card-link">Leia mais</a>
       </div>

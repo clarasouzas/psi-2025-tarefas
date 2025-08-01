@@ -23,8 +23,8 @@ def lista_postagens(request):
     }
     return render(request, "blog/posts.html", context)
 
-def postagem_detalhe(request, pk):
-    postagem = get_object_or_404(Postagem, pk=pk)
+def postagem_detalhe(request, id_post):
+    postagem = get_object_or_404(Postagem,id = id_post)
     context = {
         "postagem": postagem,
         "blog": Blog.objects.first(),
