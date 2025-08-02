@@ -1,4 +1,4 @@
-/* Reset básico */
+
 body, html {
   margin: 0;
   padding: 0;
@@ -8,7 +8,7 @@ body, html {
   min-height: 100vh;
 }
 
-/* Navbar */
+
 #mainNav {
   background-color: #010007;
   padding: 0.75rem 1rem;
@@ -34,7 +34,6 @@ body, html {
   color: #374f70;
 }
 
-/* Header masthead */
 header.masthead {
   position: relative;
   height: 100vh;
@@ -47,8 +46,7 @@ header.masthead {
   text-align: center;
   color: #eee;
   padding: 0 15px;
-  background-color: #010007; /* fallback */
-}
+  background-color: #010007; }
 
 header.masthead::before {
   content: "";
@@ -78,14 +76,13 @@ header.masthead .subheading {
   text-shadow: 0 1px 4px rgba(0,0,0,0.9);
 }
 
-/* Container centralizado para conteúdo principal */
+
 .container-centered {
   max-width: 900px;
   margin: 0 auto;
   padding: 1.5rem;
 }
 
-/* Main content */
 main.mb-4 {
   background-color: #010007;
   color: #ddd;
@@ -96,7 +93,7 @@ main.mb-4 {
   font-size: 1.1rem;
 }
 
-/* Posts grid */
+
 .posts-grid {
   display: flex;
   flex-wrap: wrap;
@@ -105,7 +102,7 @@ main.mb-4 {
   margin-top: 2rem;
 }
 
-/* Post card */
+
 .post-card {
   background-color: #010007;
   border: 1px solid #374f70;
@@ -176,101 +173,16 @@ main.mb-4 {
   cursor: pointer;
 }
 
-/* Elenco container (postagens detalhadas) */
-.elenco-custom {
-  background-color: #010007;
-  padding: 2rem 1rem;
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center;
-}
-
-/* Elenco cards (postagens em lista) */
-.elenco-custom .card-elenco {
-  background-color: #010007;
-  border: 1px solid #374f70;
-  border-radius: 10px;
-  color: #ddd;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-  width: 320px;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.elenco-custom .card-elenco:hover {
-  box-shadow: 0 0 20px 6px #374f70;
-  transform: translateY(-6px);
-}
-
-.elenco-custom .card-img-elenco {
-  height: 500px;
-  object-fit: cover;
-  width: 100%;
-  border-radius: 8px 8px 0 0;
-}
-
-.elenco-custom .card-body-elenco {
-  flex-grow: 1;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.elenco-custom .card-title-elenco {
-  color: #fff;
-  font-weight: 700;
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-}
-
-.elenco-custom .card-text-elenco {
-  color: #ccc;
-  font-size: 1rem;
-  margin-bottom: 1rem;
-}
-
-.elenco-custom .btn-primary-elenco {
-  background-color: transparent;
-  border: 1px solid #374f70;
-  color: #374f70;
-  padding: 6px 12px;
-  border-radius: 6px;
-  font-size: 0.95rem;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  align-self: flex-start;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.elenco-custom .btn-primary-elenco:hover {
-  background-color: #374f70;
-  color: #fff;
-  text-decoration: none;
-}
-
-.elenco-custom p strong {
-  color: #89a7d0;
-  font-weight: 700;
-}
-
-.elenco-custom p {
-  color: #ccc;
-  margin-bottom: 0.5rem;
-}
-
-/* Footer */
 footer {
   background-color: #010007;
   color: #bbb;
   padding: 2rem 1rem;
   margin-top: 4rem;
   text-align: center;
+   border-top: 1px solid #374f70;
 }
+  
+
 
 footer ul.list-inline li a {
   color: #bbb;
@@ -286,11 +198,7 @@ footer .small {
   font-size: 0.9rem;
 }
 
-/* Responsividade geral */
 @media (max-width: 992px) {
-  .elenco-custom .card-img-elenco {
-    height: 300px;
-  }
   .post-card img {
     height: 150px;
   }
@@ -303,9 +211,6 @@ footer .small {
   header.masthead .subheading {
     font-size: 1.2rem;
   }
-  .elenco-custom .card-img-elenco {
-    height: 200px;
-  }
   .post-card img {
     height: 120px;
   }
@@ -313,4 +218,3 @@ footer .small {
     padding: 1rem;
   }
 }
-

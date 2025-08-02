@@ -6,13 +6,6 @@
 {% block titulo %}{{ postagem.titulo }}{% endblock titulo %}
 {% block subtitulo %}Detalhes da postagem{% endblock subtitulo %}
 
-{% block header_image  %}
-  {% if postagem.imagem %}
-    {{ postagem.imagem.url }}
-  {% else %}
-    {% static 'website/img/sem-imagem.jpg' %}
-  {% endif %}
-{% endblock header_image %}
 
 {% block content %}
 <main class="container mt-5">
