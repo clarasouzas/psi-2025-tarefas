@@ -12,20 +12,25 @@
     </header>
 
     <main>
-    {% for tarefa in tarefas %}
-    <li class="tarefa {% if tarefa.atrasada %}atrasada{% endif %}">
-        <span class="nome">{{ tarefa.nome }}</span>
-        <span class="status">
-            {% if tarefa.atrasada %}
-                Atrasada
-            {% else %}
-                {{ tarefa.status }}
-            {% endif %}
-        </span>
-        <span class="prazo">{{ tarefa.prazo|date:"d/m/Y" }}</span>
-    </li>
-    {% endfor %}
+      {% if tarefas %}
+      <ul class="lista-tarefas">
+        {% for tarefa in tarefas %}
+        <li class="tarefa {% if tarefa.atrasada %}atrasada{% endif %}">
+            <span class="nome">{{ tarefa.nome }}</span>
+            <span class="status">
+                {% if tarefa.atrasada %}
+                    Atrasada
+                {% else %}
+                    {{ tarefa.status }}
+                {% endif %}
+            </span>
+            <span class="prazo">{{ tarefa.prazo|date:"d/m/Y" }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+        <p class="vazio">Nenhuma tarefa cadastrada.</p>
+      {% endif %}
     </main>
 </body>
 </html>
-

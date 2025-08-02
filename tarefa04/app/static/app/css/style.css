@@ -1,30 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
-
 body {
     font-family: 'Lora', serif;
-    background: #f7f9fc;
-    color: #333;
+    background: #dbc6ea;
+    color: #2e2e2e;
     margin: 0;
-    padding: 0 20px;
+    padding: 0 25px;
 }
 
 header {
-    background-color: #af8bb7;
-    color: rgb(25, 25, 25);
-    padding: 20px 0;
+    background-color: #8c7db9;
+    color: #222;
+    padding: 22px 0;
     text-align: center;
-    margin: auto;
     max-width: 1500px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin: 0 auto 30px auto; /* margem embaixo para separar do conteúdo */
+    border-bottom: 4px solid #7465a1;
+    box-shadow: 0 5px 15px rgba(116, 101, 161, 0.3);
+    border-radius: 0 0 12px 12px;
+    position: relative;
+    z-index: 10;
 }
 
 h1 {
     margin: 0;
-    font-weight: 400;
+    font-weight: 500;
+    font-size: 2.8rem;
+    letter-spacing: 1.2px;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.15);
 }
 
 main {
-    margin: 30px auto;
+    margin: 0 auto 50px auto;
     max-width: 1200px;
 }
 
@@ -34,49 +39,50 @@ main {
 }
 
 .tarefa {
-    border-left: 5px solid #af8bb7;
-    background: white;
-    padding: 15px 20px;
-    margin-bottom: 10px;
-    border-radius: 6px;
+    border-left: 5px solid #8c7db9;
+    background: #ffffff;
+    padding: 16px 22px;
+    margin-bottom: 12px;
+    border-radius: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-    transition: background-color 0.3s ease;
+    box-shadow: 0 3px 8px rgba(140, 125, 185, 0.15);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .tarefa:hover {
-    background-color: #e9f0ff;
+    background-color: #beb8ca;
+    box-shadow: 0 8px 18px rgba(69, 51, 125, 0.3);
 }
 
 .nome {
     font-weight: 600;
     flex: 2;
+    color: #3b3b3b;
 }
 
 .status {
     flex: 1;
     text-align: center;
     font-style: italic;
-    color: #555;
+    color: #666;
 }
 
 .prazo {
     flex: 1;
     text-align: right;
-    font-size: 0.9em;
-    color: #666;
+    font-size: 0.95em;
+    color: #555;
 }
 
-/* Classe que diferencia tarefas atrasadas */
 .atrasada {
-    border-left: 5px solid #ffa1ab;
-    background-color: #ffe6e6;
+    border-left: 5px solid #d97676;
+    background-color: #f9eaea;
 }
 
 .vazio {
-    color: #777;
+    color: #888;
     font-style: italic;
     text-align: center;
 }
